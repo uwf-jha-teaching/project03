@@ -1,0 +1,74 @@
+{
+	"tests": [
+	{
+		"name": "Run node tests",
+		"setup": "",
+		"run": "make clean test-1-node",
+		"input": "",
+		"output": "All tests passed",
+		"comparison": "included",
+		"timeout": 2,
+		"points": 10
+	},
+	{
+		"name": "Run Filesystem create tests",
+		"setup": "",
+		"run": "make clean test-2-filesystem-create",
+		"input": "",
+		"output": "All tests passed",
+		"comparison": "included",
+		"timeout": 2,
+		"points": 10
+	},
+	{
+		"name": "Run Filesystem move/navigation tests",
+		"setup": "",
+		"run": "make clean test-3-filesystem-move",
+		"input": "",
+		"output": "All tests passed",
+		"comparison": "included",
+		"timeout": 2,
+		"points": 10
+	},
+	{
+		"name": "Run Filesystem remove tests",
+		"setup": "",
+		"run": "make clean test-4-filesystem-remove",
+		"input": "",
+		"output": "All tests passed",
+		"comparison": "included",
+		"timeout": 2,
+		"points": 10
+	},
+	{
+		"name": "Node memory leak check",
+		"setup": "(valgrind --version || (sudo apt-get update -y && sudo apt-get install -y valgrind)) && make test-1-node",
+		"run": "valgrind --error-exitcode=1 --leak-check=full ./test-1-node",
+		"input": "",
+		"output": "",
+		"comparison": "included",
+		"timeout": 10,
+		"points": 10
+	},
+	{
+		"name": "Filesystem memory leak check",
+		"setup": "(valgrind --version || (sudo apt-get update -y && sudo apt-get install -y valgrind)) && make test-2-filesystem-create",
+		"run": "valgrind --error-exitcode=1 --leak-check=full ./test-2-filesystem-create",
+		"input": "",
+		"output": "",
+		"comparison": "included",
+		"timeout": 10,
+		"points": 10
+	},
+	{
+		"name": "Verify working main",
+		"setup": "",
+		"run": "make test-run",
+		"input": "",
+		"output": "f foo\nd bar\n",
+		"comparison": "included",
+		"timeout": 1,
+		"points": 20
+	}
+	]
+}
